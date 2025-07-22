@@ -1,0 +1,190 @@
+.tree-explorer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.tree-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tree-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.back-btn, .playlist-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.tree-canvas-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.tree-canvas {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tree-node {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tree-node:hover circle {
+  r: 35;
+  stroke-width: 4;
+}
+
+.tree-node.explored circle {
+  fill: url(#exploredGradient);
+  stroke: #4CAF50;
+}
+
+.tree-node.playing circle {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    stroke-width: 3;
+    stroke-opacity: 1;
+  }
+  50% { 
+    stroke-width: 6;
+    stroke-opacity: 0.5;
+  }
+}
+
+.node-label {
+  pointer-events: none;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.connection-line {
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.connection-line:hover {
+  opacity: 1;
+  stroke-width: 3;
+}
+
+.mini-player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+.mini-player .track-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.mini-player .track-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.mini-player .track-info div h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+
+.mini-player .track-info div p {
+  margin: 0;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.player-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.play-btn, .expand-btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+.play-btn.playing {
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  animation: playingGlow 2s infinite;
+}
+
+@keyframes playingGlow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4); }
+  50% { box-shadow: 0 6px 25px rgba(76, 175, 80, 0.8); }
+}
+
+.expand-btn {
+  background: linear-gradient(45deg, #FF6B6B, #FF5722);
+}
+
+.expand-btn:hover {
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .tree-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .tree-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .tree-canvas {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .mini-player {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .mini-player .track-info {
+    justify-content: center;
+  }
+  
+  .player-controls {
+    justify-content: center;
+  }
+}
+
+/* 추가 SVG 그라데이션 */
+.tree-canvas defs {
+  display: none;
+}

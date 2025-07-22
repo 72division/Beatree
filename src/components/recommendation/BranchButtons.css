@@ -1,0 +1,242 @@
+.branch-buttons {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  margin: 20px 0;
+}
+
+.branch-buttons-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.branch-buttons-header h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.4em;
+  color: #ffd700;
+}
+
+.branch-buttons-header p {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 0.95em;
+}
+
+.buttons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.branch-button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  min-height: 80px;
+}
+
+.branch-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.branch-button.selected {
+  border-color: #1db954;
+  background: linear-gradient(135deg, rgba(29, 185, 84, 0.2), rgba(29, 185, 84, 0.1));
+  box-shadow: 0 0 20px rgba(29, 185, 84, 0.3);
+}
+
+.branch-button.loading {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.button-main {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.button-emoji {
+  font-size: 2em;
+  flex-shrink: 0;
+}
+
+.button-text {
+  flex: 1;
+}
+
+.button-text h4 {
+  margin: 0 0 3px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.button-text p {
+  margin: 0;
+  font-size: 0.85em;
+  opacity: 0.8;
+  line-height: 1.2;
+}
+
+/* 개발자 모드 Feature 표시 */
+.dev-features {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Courier New', monospace;
+  font-size: 0.8em;
+}
+
+.feature-change {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+  padding: 2px 0;
+}
+
+.feature-name {
+  font-weight: bold;
+  color: #ffd700;
+  min-width: 80px;
+}
+
+.feature-values {
+  color: #87ceeb;
+  flex: 1;
+  text-align: center;
+}
+
+.feature-delta {
+  font-weight: bold;
+  min-width: 40px;
+  text-align: right;
+}
+
+.feature-delta.positive {
+  color: #90ee90;
+}
+
+.feature-delta.negative {
+  color: #ffa07a;
+}
+
+/* 로딩 메시지 */
+.loading-message {
+  text-align: center;
+  padding: 20px;
+  background: rgba(29, 185, 84, 0.1);
+  border: 1px solid rgba(29, 185, 84, 0.3);
+  border-radius: 15px;
+  color: white;
+}
+
+.loading-message .loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #1db954;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px auto;
+}
+
+.loading-message p {
+  margin: 0 0 10px 0;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.loading-message small {
+  font-size: 0.85em;
+  opacity: 0.8;
+  display: block;
+}
+
+/* 로딩 스피너 */
+.button-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.loading-spinner-small {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #1db954;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .branch-buttons {
+    padding: 20px;
+    margin: 15px 0;
+  }
+  
+  .buttons-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .branch-button {
+    padding: 12px;
+    min-height: 70px;
+  }
+  
+  .button-main {
+    gap: 10px;
+  }
+  
+  .button-emoji {
+    font-size: 1.8em;
+  }
+  
+  .button-text h4 {
+    font-size: 1em;
+  }
+  
+  .button-text p {
+    font-size: 0.8em;
+  }
+  
+  .dev-features {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 480px) {
+  .buttons-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .branch-button {
+    min-height: 60px;
+  }
+}

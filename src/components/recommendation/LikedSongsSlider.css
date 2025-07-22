@@ -1,0 +1,259 @@
+.liked-songs-slider {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px 0;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.slider-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.slider-header h4 {
+  margin: 0 0 5px 0;
+  color: #ffd700;
+  font-size: 1.2em;
+}
+
+.slider-header p {
+  margin: 0;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.slider-container {
+  margin-bottom: 20px;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.label-left {
+  color: #87ceeb;
+}
+
+.label-right {
+  color: #ffa07a;
+}
+
+.slider-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.slider {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #1db954, #1ed760);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.4);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #1db954, #1ed760);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.slider-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #87ceeb 0%, #1db954 100%);
+  border-radius: 4px;
+  pointer-events: none;
+  transition: width 0.3s ease;
+}
+
+.slider.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slider.disabled::-webkit-slider-thumb {
+  cursor: not-allowed;
+}
+
+.slider-value {
+  text-align: center;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.percentage-text strong {
+  color: #1db954;
+}
+
+.recommendation-preview {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.info-row {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.info-breakdown {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.breakdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+}
+
+.breakdown-icon {
+  font-size: 1.2em;
+}
+
+.new-songs .breakdown-text strong {
+  color: #87ceeb;
+}
+
+.liked-songs .breakdown-text strong {
+  color: #ffa07a;
+}
+
+.saved-tracks-info {
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+.saved-tracks-info p {
+  margin: 0;
+}
+
+.saved-tracks-info strong {
+  color: #ffd700;
+}
+
+.slider-presets {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.preset-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.preset-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.preset-button.active {
+  background: linear-gradient(45deg, #1db954, #1ed760);
+  border-color: #1db954;
+  box-shadow: 0 2px 8px rgba(29, 185, 84, 0.3);
+}
+
+.preset-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.preset-button:disabled:hover {
+  transform: none;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .liked-songs-slider {
+    padding: 20px;
+    margin: 15px 0;
+  }
+  
+  .info-breakdown {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .breakdown-item {
+    justify-content: center;
+  }
+  
+  .slider-presets {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .preset-button {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-labels {
+    font-size: 0.8em;
+  }
+  
+  .slider-value {
+    font-size: 0.9em;
+  }
+  
+  .recommendation-preview {
+    padding: 12px;
+  }
+  
+  .breakdown-item {
+    font-size: 0.8em;
+  }
+}

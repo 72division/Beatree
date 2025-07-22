@@ -1,0 +1,120 @@
+.dev-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.toggle-text {
+  user-select: none;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 26px;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #333;
+  border-radius: 26px;
+  transition: all 0.3s ease;
+  border: 2px solid #555;
+}
+
+.toggle-switch.enabled .toggle-slider {
+  background: linear-gradient(45deg, #1db954, #1ed760);
+  border-color: #1db954;
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch.enabled .toggle-knob {
+  transform: translateX(24px);
+}
+
+.dev-mode-info {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #1db954;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.dev-mode-info p {
+  margin: 0;
+}
+
+/* 호버 효과 */
+.toggle-label:hover .toggle-slider {
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.3);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .dev-mode-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+  }
+  
+  .toggle-label {
+    font-size: 0.8em;
+    gap: 8px;
+  }
+  
+  .toggle-switch {
+    width: 40px;
+    height: 22px;
+  }
+  
+  .toggle-slider {
+    border-radius: 22px;
+  }
+  
+  .toggle-knob {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .toggle-switch.enabled .toggle-knob {
+    transform: translateX(18px);
+  }
+}
